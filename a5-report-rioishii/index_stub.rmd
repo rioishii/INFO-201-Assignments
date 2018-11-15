@@ -1,0 +1,37 @@
+---
+title: "Who Represents You?"
+output:
+  html_document: default
+css: styles.css
+---
+
+```{r, include=FALSE, echo=FALSE}
+address <- "Seattle, WA"
+source("keys.R")
+library(dplyr)
+library(knitr)
+library(httr)
+library(jsonlite)
+library(ggplot2)
+knitr::opts_chunk$set(error=TRUE)
+source("process_data.R")
+```
+
+## Your Representatives
+This is a report about the political representatives for residents of Seattle, WA. This report draws upon data from the [ProPublica API](https://projects.propublica.org/api-docs/congress-api/) and the [Google Civic Data API](https://developers.google.com/civic-information/). As an overview, here is a summary of who represents the address given (from the local to the national level).
+```{r, echo=FALSE}
+kable(google)
+```
+
+## House of Representatives
+Now let’s take a look at **all** of the congressional representatives (in the House of Representatives, not the Senate) for Washington state where the address was given. We see this breakdown by gender and political party for those members of the House:
+
+```{r, echo=FALSE}
+source('propublica.R')
+gender_graph
+party_graph
+```
+
+
+## `r random_rep_facts$name`
+Let’s learn a bit more about one representative, `r random_rep_facts$name`. The representative is `r random_rep_facts$party`, `r random_rep_facts$age` years old, and you can find them on twitter at [`r random_rep_facts$twitter_id`](`r random_rep_facts$twitter_link`). Interestingly, of the last `r sum` congressional votes, the representative was in accordance with the majority `r percent`% of the time.

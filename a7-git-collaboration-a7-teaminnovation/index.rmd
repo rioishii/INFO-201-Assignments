@@ -1,0 +1,39 @@
+---
+title: "UFO Report"
+output: html_document
+---
+
+```{r library, include=FALSE, echo=FALSE}
+df <- read.csv("data/UFOCoords.csv")
+library(dplyr)
+library(knitr)
+library(ggplot2)
+knitr::opts_chunk$set(error=TRUE)
+```
+
+```{r summary, echo=FALSE}
+source("scripts/summary.R")
+```
+
+## Summary
+This is a report of UFO sighting in the United States and Canada. This report draws upon data from the [data.world](https://data.world/timothyrenner/ufo-sightings). As an overview, here is a summary of the key variables from the data.
+
+- Total appearances of UFO (2016): `r summary$length`
+- Most appeared time period: `r summary$time_day`
+- Most appeared time: `r summary$common_time`
+- Most appeared area: `r summary$most_occurances`
+- Most appeared shape: `r summary$common_shape`
+
+## UFO appearances in North America
+
+```{r plots1, message=FALSE, echo=FALSE}
+source("scripts/Chart_1.R")
+plot_1(df)
+```
+
+## UFO Shapes Spotted in the United States
+
+```{r plot2, message=FALSE, echo=FALSE}
+source("scripts/Chart_2.R")
+plot_2(df)
+```

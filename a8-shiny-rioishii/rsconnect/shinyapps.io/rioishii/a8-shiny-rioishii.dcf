@@ -1,0 +1,12 @@
+name: a8-shiny-rioishii
+title: a8-shiny-rioishii
+username:
+account: rioishii
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 241285
+bundleId: 1102611
+url: https://rioishii.shinyapps.io/a8-shiny-rioishii/
+when: 1511917368.8147
+asMultiple: FALSE
+asStatic: FALSE
